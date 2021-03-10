@@ -11,7 +11,7 @@ if [ $1 == "-d" ] ; then
 		mv $2 ~/.trash/
 	fi
 else
-	if [[ -d $@ ]]; then
+	if [[ -d $1 ]]; then
 		echo "If you are trying to move a directory, please use -d"
 	else
 		mv $1 ~/.trash/
