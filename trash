@@ -1,0 +1,15 @@
+#i/bin/bash
+
+if [ ! -d "$HOME/.trash ] ; them
+	mkdir "$HOME/.trash"
+fi
+
+if [ $1 == '-d' ] then
+	mv 	
+fi
+if [ ! $1 == '-d' ] then
+	for FILE in "$@"
+    do
+        mv "$FILE ~/.trash/"
+    done
+fi
