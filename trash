@@ -1,15 +1,19 @@
 #i/bin/bash
 
-if [ ! -d "$HOME/.trash ] ; them
+if [ ! -d "$HOME/.trash" ] ; then
 	mkdir "$HOME/.trash"
 fi
 
-if [ $1 == '-d' ] then
-	mv 	
-fi
-if [ ! $1 == '-d' ] then
-	for FILE in "$@"
-    do
-        mv "$FILE ~/.trash/"
-    done
+if [ $1 == "-d" ] ; then
+	if [[ -f $2 ]] ; then
+		echo "If you are trying to move a file, please do not use -d"
+	else
+		mv $2 ~/.trash/
+	fi
+else
+	if [[ -d $@ ]]; then
+		echo "If you are trying to move a directory, please use -d"
+	else
+		mv $1 ~/.trash/
+	fi
 fi
