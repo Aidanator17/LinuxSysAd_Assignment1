@@ -1,0 +1,20 @@
+#!/bin/bash
+
+reminderPATH="$HOME/.config/$0/reminders"
+
+if [ ! -d $reminderPATH ] ; then
+	if [ ! -d "$HOME/.config/$0" ] ; then
+		if [ ! -d "$HOME/.config" ] ; then
+			mkdir "$HOME/.config"
+			mkdir "$HOME/.config/$0"
+			mkdir $reminderPATH
+		else
+			mkdir "$HOME/.config/$0"
+			mkdir $reminderPATH
+		fi			
+	else
+		mkdir $reminderPATH
+	fi
+fi
+
+
