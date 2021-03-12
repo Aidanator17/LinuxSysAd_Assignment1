@@ -1,4 +1,5 @@
 #i/bin/bash
+now=$(date +"%F-%H:%M:%S")
 
 if [ ! -d "$HOME/.trash" ] ; then
 	mkdir "$HOME/.trash"
@@ -8,12 +9,12 @@ if [ $1 == "-d" ] ; then
 	if [[ -f $2 ]] ; then
 		echo "If you are trying to move a file, please do not use -d"
 	else
-		mv $2 ~/.trash/
+		mv $2 ~/.trash/$2-$now
 	fi
 else
 	if [[ -d $1 ]]; then
 		echo "If you are trying to move a directory, please use -d"
 	else
-		mv $1 ~/.trash/
+		mv $1 ~/.trash/$1-$now
 	fi
 fi
