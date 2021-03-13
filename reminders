@@ -12,10 +12,10 @@ elif [ $1 == "-A" ] ; then
 		if [ ! -d "$HOME/.config/$0" ] ; then
 			if [ ! -d "$HOME/.config" ] ; then
 				mkdir "$HOME/.config"
-				mkdir "$HOME/.config/$0"
+				mkdir "$HOME/.config/$file_name"
 				mkdir $reminderPATH
 			else
-				mkdir "$HOME/.config/$0"
+				mkdir "$HOME/.config/$file_name"
 				mkdir $reminderPATH
 			fi            
 		else
