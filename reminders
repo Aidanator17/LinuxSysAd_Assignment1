@@ -17,8 +17,11 @@ if [ ! -d $reminderPATH ] ; then
 	fi
 fi
 
-if [ $1 == "-A" ] ; then
-	if [ $2 == "" ] ; then
+if [ -z "$1" ] ; then
+	ls $reminderPATH -1
+
+elif [ $1 == "-A" ] ; then
+	if [ -z "$2" ] ; then
 		echo "Please specify the name for your new reminder"
 	else
 		touch $reminderPATH"/$2"
