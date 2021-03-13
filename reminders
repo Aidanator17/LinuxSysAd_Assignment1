@@ -1,26 +1,27 @@
 #!/bin/bash
 
-reminderPATH="$HOME/.config/$0/reminders"
-
-if [ ! -d $reminderPATH ] ; then
-	if [ ! -d "$HOME/.config/$0" ] ; then
-		if [ ! -d "$HOME/.config" ] ; then
-			mkdir "$HOME/.config"
-			mkdir "$HOME/.config/$0"
-			mkdir $reminderPATH
-		else
-			mkdir "$HOME/.config/$0"
-			mkdir $reminderPATH
-		fi			
-	else
-		mkdir $reminderPATH
-	fi
-fi
+file_name=$(basename -- $0)
+reminderPATH="$HOME/.config/$file_name/reminders"
 
 if [ -z "$1" ] ; then
+	echo "Reminders:"
 	ls $reminderPATH -1
 
 elif [ $1 == "-A" ] ; then
+	if [ ! -d $reminderPATH ] ; then
+		if [ ! -d "$HOME/.config/$0" ] ; then
+			if [ ! -d "$HOME/.config" ] ; then
+				mkdir "$HOME/.config"
+				mkdir "$HOME/.config/$0"
+				mkdir $reminderPATH
+			else
+				mkdir "$HOME/.config/$0"
+				mkdir $reminderPATH
+			fi            
+		else
+			mkdir $reminderPATH
+		fi
+	fi
 	if [ -z "$2" ] ; then
 		echo "Please specify the name for your new reminder"
 	else
